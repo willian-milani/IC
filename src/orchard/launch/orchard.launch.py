@@ -1,0 +1,163 @@
+import os
+
+from ament_index_python.packages import get_package_share_directory
+
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription
+from launch.actions import SetEnvironmentVariable
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
+
+
+def generate_launch_description():
+
+    # ============================================================
+    # CAMINHOS
+    # ============================================================
+
+    orchard_share = get_package_share_directory('orchard')
+
+    orchard_worlds = os.path.join(
+        orchard_share,
+        'worlds'
+    )
+
+    orchard_models = os.path.join(
+        orchard_share,
+        'models'
+    )
+
+    clearpath_gz_share = get_package_share_directory(
+        'clearpath_gz'
+    )
+
+    ros_gz_sim_share = get_package_share_directory(
+        'ros_gz_sim'
+    )
+
+    # Mundo personalizado
+    orchard_world = os.path.join(
+        orchard_worlds,
+        'orchard.sdf'
+    )
+
+    # ============================================================
+    # ARGUMENTOS
+    # ============================================================
+
+    rviz = LaunchConfiguration('rviz')
+    x = LaunchConfiguration('x')
+    y = LaunchConfiguration('y')
+    z = LaunchConfiguration('z')
+    yaw = LaunchConfiguration('yaw')
+
+    # ============================================================
+    # CAMINHO DE RECURSOS DO GAZEBO
+    # ============================================================
+
+    # Mantém os recursos do Clearpath e adiciona:
+    # - modelos do nosso pomar
+    # - mundo do nosso pomar
+
+    current_gz_resource_path = os.environ.get(
+        'GZ_SIM_RESOURCE_PATH',
+        ''
+    )
+
+    resource_paths = [
+        orchard_models,
+        orchard_worlds,
+        os.path.join(clearpath_gz_share, 'worlds'),
+        os.path.join(clearpath_gz_share, 'meshes'),
+    ]
+
+    if current_gz_resource_path:
+        resource_paths.append(current_gz_resource_path)
+
+    gz_resource_path = ':'.join(resource_paths)
+
+    set_gz_resource_path = SetEnvironmentVariable(
+        name='GZ_SIM_RESOURCE_PATH',
+        value=gz_resource_path
+    )
+
+    # ============================================================
+    # GAZEBO SIM
+    # ============================================================
+
+    gz_sim_launch = os.path.join(
+        ros_gz_sim_share,
+        'launch',
+        'gz_sim.launch.py'
+    )
+
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            gz_sim_launch
+        ),
+        launch_arguments={
+            'gz_args': orchard_world + ' -r -v 4'
+        }.items()
+    )
+
+    # ============================================================
+    # CLEARPATH ROBOT SPAWN
+    # ============================================================
+
+    robot_spawn_launch = os.path.join(
+        clearpath_gz_share,
+        'launch',
+        'robot_spawn.launch.py'
+    )
+
+    robot_spawn = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            robot_spawn_launch
+        ),
+        launch_arguments={
+            'setup_path': os.path.expanduser(
+                '~/clearpath'
+            ),
+            'world': 'orchard',
+            'use_sim_time': 'true',
+            'rviz': rviz,
+            'x': x,
+            'y': y,
+            'z': z,
+            'yaw': yaw,
+            'generate': 'true'
+        }.items()
+    )
+
+    # ============================================================
+    # DESCRIÇÃO DO LAUNCH
+    # ============================================================
+
+    return LaunchDescription([
+
+        # Argumentos
+        DeclareLaunchArgument(
+            'rviz',
+            default_value='false'
+        ),
+
+        DeclareLaunchArgument('x', default_value='-20.0'),
+        DeclareLaunchArgument('y', default_value='-12.0'),
+        DeclareLaunchArgument('z', default_value='0.3'),
+        DeclareLaunchArgument('yaw', default_value='0.0'),
+
+        DeclareLaunchArgument(
+            'yaw',
+            default_value='0.0'
+        ),
+
+        # Recursos do Gazebo
+        set_gz_resource_path,
+
+        # Inicia o nosso mundo
+        gazebo,
+
+        # Insere o robô Clearpath
+        robot_spawn,
+    ])

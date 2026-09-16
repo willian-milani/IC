@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<sdf version="1.8">
+
+  <model name="tree">
+
+    <static>true</static>
+
+    <!-- TRONCO -->
+    <link name="trunk">
+
+      <pose>0 0 1 0 0 0</pose>
+
+      <visual name="trunk_visual">
+
+        <geometry>
+          <cylinder>
+            <radius>0.25</radius>
+            <length>2.0</length>
+          </cylinder>
+        </geometry>
+
+        <material>
+          <ambient>0.35 0.18 0.05 1</ambient>
+          <diffuse>0.35 0.18 0.05 1</diffuse>
+        </material>
+
+      </visual>
+
+      <collision name="trunk_collision">
+
+        <geometry>
+          <cylinder>
+            <radius>0.25</radius>
+            <length>2.0</length>
+          </cylinder>
+        </geometry>
+
+      </collision>
+
+    </link>
+
+
+    <!-- FOLHAS -->
+    <link name="leaves">
+
+      <pose>0 0 2.3 0 0 0</pose>
+
+      <visual name="leaves_visual">
+
+        <geometry>
+          <sphere>
+            <radius>1.2</radius>
+          </sphere>
+        </geometry>
+
+        <material>
+          <ambient>0.05 0.35 0.05 1</ambient>
+          <diffuse>0.05 0.35 0.05 1</diffuse>
+        </material>
+
+      </visual>
+
+      <collision name="leaves_collision">
+
+        <geometry>
+          <sphere>
+            <radius>1.2</radius>
+          </sphere>
+        </geometry>
+
+      </collision>
+
+    </link>
+
+  </model>
+
+</sdf>
