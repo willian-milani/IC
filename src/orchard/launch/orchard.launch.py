@@ -8,6 +8,7 @@ from launch.actions import IncludeLaunchDescription
 from launch.actions import SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
@@ -129,6 +130,16 @@ def generate_launch_description():
         }.items()
 
     )
+
+    clock_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'
+        ],
+        output='screen'
+    )
+
     # ============================================================
     # DESCRIÇÃO DO LAUNCH
     # ============================================================
@@ -152,6 +163,8 @@ def generate_launch_description():
 
         # Inicia o nosso mundo
         gazebo,
+
+        clock_bridge,
 
         # Insere o robô Clearpath
         robot_spawn,
