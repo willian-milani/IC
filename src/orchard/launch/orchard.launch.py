@@ -6,6 +6,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
 from launch.actions import SetEnvironmentVariable
+from launch.actions import TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
@@ -116,19 +117,22 @@ def generate_launch_description():
         'spawn_husky.launch.py'
     )
 
-    robot_spawn = IncludeLaunchDescription(
+    robot_spawn = TimerAction(
+        period=8.0,
+        actions=[
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource(
+                    robot_spawn_launch
+                ),
 
-        PythonLaunchDescriptionSource(
-            robot_spawn_launch
-        ),
-
-        launch_arguments={
-            'x': x,
-            'y': y,
-            'z': z,
-            'yaw': yaw,
-        }.items()
-
+                launch_arguments={
+                    'x': x,
+                    'y': y,
+                    'z': z,
+                    'yaw': yaw,
+                }.items()
+            )
+        ]
     )
 
     clock_bridge = Node(
@@ -139,6 +143,15 @@ def generate_launch_description():
         ],
         output='screen'
     )
+
+    lidar_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/sensors/seyond_lidar/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'
+        ],
+        output='screen'
+)
 
     # ============================================================
     # DESCRIÇÃO DO LAUNCH
@@ -165,6 +178,8 @@ def generate_launch_description():
         gazebo,
 
         clock_bridge,
+        
+        lidar_bridge,
 
         # Insere o robô Clearpath
         robot_spawn,

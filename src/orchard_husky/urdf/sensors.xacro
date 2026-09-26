@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+    <!-- =============================== -->
+    <!-- SEYOND 3D LIDAR -->
+    <!-- =============================== -->
+
+    <xacro:include
+        filename="$(find clearpath_sensors_description)/urdf/seyond_lidar.urdf.xacro"/>
+
+
+    <xacro:seyond_lidar
+        name="seyond_lidar"
+        parent_link="base_link">
+
+        <origin
+            xyz="0.25 0 0.45"
+            rpy="0 0 0"/>
+
+    </xacro:seyond_lidar>
+
+
+</robot>

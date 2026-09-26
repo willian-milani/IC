@@ -5,6 +5,31 @@
 
   <gravity>0 0 -9.81</gravity>
 
+  <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+  </plugin>
+
+  <plugin filename="gz-sim-user-commands-system"
+        name="gz::sim::systems::UserCommands"/>
+
+
+  <!-- Sensores (LiDAR, câmera, IMU) -->
+  <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      
+      <render_engine>ogre2</render_engine>
+
+  </plugin>
+
+
+  <!-- Cena -->
+  <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+  </plugin>
+
   <light name="sun" type="directional">
     <pose>0 0 10 0 0 0</pose>
     <diffuse>1 1 1 1</diffuse>

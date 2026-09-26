@@ -17,6 +17,9 @@
 
     <xacro:include 
         filename="$(find clearpath_platform_description)/urdf/a200/a200.urdf.xacro"/>
+    
+    <xacro:include
+        filename="$(find orchard_husky)/urdf/sensors.xacro"/>
 
 
     <xacro:a200 
