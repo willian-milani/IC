@@ -2,77 +2,199 @@
 
 <sdf version="1.8">
 
-  <model name="tree">
+  <model name="pine_tree">
 
     <static>true</static>
 
+
+    <!-- ========================= -->
     <!-- TRONCO -->
+    <!-- ========================= -->
+
     <link name="trunk">
 
       <pose>0 0 1 0 0 0</pose>
 
+
       <visual name="trunk_visual">
 
         <geometry>
+
           <cylinder>
-            <radius>0.25</radius>
+
+            <radius>0.18</radius>
+
             <length>2.0</length>
+
           </cylinder>
+
         </geometry>
 
+
         <material>
-          <ambient>0.35 0.18 0.05 1</ambient>
-          <diffuse>0.35 0.18 0.05 1</diffuse>
+
+          <ambient>0.32 0.16 0.05 1</ambient>
+
+          <diffuse>0.32 0.16 0.05 1</diffuse>
+
         </material>
 
+
       </visual>
+
+
 
       <collision name="trunk_collision">
 
         <geometry>
+
           <cylinder>
-            <radius>0.25</radius>
+
+            <radius>0.18</radius>
+
             <length>2.0</length>
+
           </cylinder>
+
         </geometry>
 
       </collision>
 
+
     </link>
 
 
-    <!-- FOLHAS -->
-    <link name="leaves">
+
+    <!-- ========================= -->
+    <!-- COPA INFERIOR -->
+    <!-- ========================= -->
+
+    <link name="lower_leaves">
 
       <pose>0 0 2.3 0 0 0</pose>
 
-      <visual name="leaves_visual">
+
+      <visual name="lower_visual">
 
         <geometry>
-          <sphere>
-            <radius>1.2</radius>
-          </sphere>
+
+          <cone>
+
+            <radius>1.3</radius>
+
+            <length>1.8</length>
+
+          </cone>
+
         </geometry>
 
+
         <material>
-          <ambient>0.05 0.35 0.05 1</ambient>
-          <diffuse>0.05 0.35 0.05 1</diffuse>
+
+          <ambient>0.02 0.35 0.02 1</ambient>
+
+          <diffuse>0.02 0.35 0.02 1</diffuse>
+
         </material>
+
 
       </visual>
 
-      <collision name="leaves_collision">
-
-        <geometry>
-          <sphere>
-            <radius>1.2</radius>
-          </sphere>
-        </geometry>
-
-      </collision>
 
     </link>
 
+
+
+    <!-- ========================= -->
+    <!-- COPA MEDIA -->
+    <!-- ========================= -->
+
+    <link name="middle_leaves">
+
+
+      <pose>0 0 3.1 0 0 0</pose>
+
+
+      <visual name="middle_visual">
+
+
+        <geometry>
+
+          <cone>
+
+            <radius>1.0</radius>
+
+            <length>1.7</length>
+
+          </cone>
+
+
+        </geometry>
+
+
+        <material>
+
+          <ambient>0.015 0.45 0.015 1</ambient>
+
+          <diffuse>0.015 0.45 0.015 1</diffuse>
+
+        </material>
+
+
+      </visual>
+
+
+    </link>
+
+
+
+    <!-- ========================= -->
+    <!-- COPA SUPERIOR -->
+    <!-- ========================= -->
+
+
+    <link name="top_leaves">
+
+
+      <pose>0 0 3.8 0 0 0</pose>
+
+
+      <visual name="top_visual">
+
+
+        <geometry>
+
+          <cone>
+
+            <radius>0.7</radius>
+
+            <length>1.5</length>
+
+          </cone>
+
+
+        </geometry>
+
+
+        <material>
+
+
+          <ambient>0.01 0.30 0.01 1</ambient>
+
+          <diffuse>0.01 0.30 0.01 1</diffuse>
+
+
+        </material>
+
+
+      </visual>
+
+
+    </link>
+
+
+
   </model>
+
 
 </sdf>

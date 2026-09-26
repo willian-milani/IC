@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="orchard_husky">
+
+
+    <!-- ================================================= -->
+    <!-- Dependências básicas Clearpath -->
+    <!-- ================================================= -->
+
+    <xacro:include 
+        filename="$(find clearpath_platform_description)/urdf/common.urdf.xacro"/>
+
+
+    <!-- ================================================= -->
+    <!-- Plataforma A200 -->
+    <!-- ================================================= -->
+
+    <xacro:include 
+        filename="$(find clearpath_platform_description)/urdf/a200/a200.urdf.xacro"/>
+
+
+    <xacro:a200 
+        control="diff_4wd"
+        front_wheels="outdoor"
+        rear_wheels="outdoor"/>
+
+
+</robot>

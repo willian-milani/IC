@@ -1,7 +1,8 @@
+# ROS2 build files
 build/
-devel/
 install/
-logs/
-*.bag
-*.pyc
-__pycache__/
+log/
+
+# backups
+*_backup.sdf
+*_clean.sdf

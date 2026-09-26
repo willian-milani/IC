@@ -105,31 +105,30 @@ def generate_launch_description():
     # CLEARPATH ROBOT SPAWN
     # ============================================================
 
+    orchard_husky_share = get_package_share_directory(
+        'orchard_husky'
+    )
+
     robot_spawn_launch = os.path.join(
-        clearpath_gz_share,
+        orchard_husky_share,
         'launch',
-        'robot_spawn.launch.py'
+        'spawn_husky.launch.py'
     )
 
     robot_spawn = IncludeLaunchDescription(
+
         PythonLaunchDescriptionSource(
             robot_spawn_launch
         ),
+
         launch_arguments={
-            'setup_path': os.path.expanduser(
-                '~/clearpath'
-            ),
-            'world': 'orchard',
-            'use_sim_time': 'true',
-            'rviz': rviz,
             'x': x,
             'y': y,
             'z': z,
             'yaw': yaw,
-            'generate': 'true'
         }.items()
-    )
 
+    )
     # ============================================================
     # DESCRIÇÃO DO LAUNCH
     # ============================================================
@@ -142,15 +141,11 @@ def generate_launch_description():
             default_value='false'
         ),
 
-        DeclareLaunchArgument('x', default_value='-20.0'),
+        DeclareLaunchArgument('x', default_value='-0.0'),
         DeclareLaunchArgument('y', default_value='-12.0'),
         DeclareLaunchArgument('z', default_value='0.3'),
-        DeclareLaunchArgument('yaw', default_value='0.0'),
+        DeclareLaunchArgument('yaw', default_value='1.57'),
 
-        DeclareLaunchArgument(
-            'yaw',
-            default_value='0.0'
-        ),
 
         # Recursos do Gazebo
         set_gz_resource_path,

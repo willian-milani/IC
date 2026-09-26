@@ -1,43 +1,14 @@
 <?xml version="1.0" ?>
 <sdf version="1.8">
 
-  <world name="orchard">
+<world name="orchard">
 
-    <!-- Física -->
-    <physics name="1ms" type="ignored">
-      <max_step_size>0.001</max_step_size>
-      <real_time_factor>1.0</real_time_factor>
-    </physics>
+  <gravity>0 0 -9.81</gravity>
 
-        <!-- Sistema de sensores -->
-    <plugin
-      filename="gz-sim-sensors-system"
-      name="gz::sim::systems::Sensors">
-      <render_engine>ogre2</render_engine>
-    </plugin>
-
-    <!-- Gravidade -->
-    <gravity>0 0 -9.81</gravity>
-
-    <!-- Sol -->
-    <light name="sun" type="directional">
-      <cast_shadows>true</cast_shadows>
-      <pose>0 0 20 0 0 0</pose>
-
-      <diffuse>1 1 1 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-
-      <attenuation>
-        <range>1000</range>
-        <constant>0.9</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-
-      <direction>-0.5 0.5 -1</direction>
-    </light>
-
-<!-- TERRENO -->
+  <light name="sun" type="directional">
+    <pose>0 0 10 0 0 0</pose>
+    <diffuse>1 1 1 1</diffuse>
+  </light>
 
 <model name="ground">
 
@@ -45,205 +16,42 @@
 
   <link name="link">
 
-    <!-- Colisão -->
-    <collision name="collision">
-
-      <geometry>
-        <box>
-          <size>100 100 0.1</size>
-        </box>
-      </geometry>
-
-      <pose>0 0 -0.05 0 0 0</pose>
-
-    </collision>
-
-
-    <!-- Visual -->
+    <!-- VISUAL -->
     <visual name="visual">
 
       <geometry>
-        <box>
-          <size>100 100 0.1</size>
-        </box>
+        <plane>
+          <normal>0 0 1</normal>
+          <size>100 100</size>
+        </plane>
       </geometry>
 
-      <pose>0 0 -0.05 0 0 0</pose>
-
       <material>
-        <ambient>0.3 0.5 0.2 1</ambient>
-        <diffuse>0.3 0.5 0.2 1</diffuse>
+        <ambient>0.3 0.8 0.3 1</ambient>
+        <diffuse>0.3 0.8 0.3 1</diffuse>
       </material>
 
     </visual>
+
+
+    <!-- COLISÃO -->
+    <collision name="collision">
+
+      <geometry>
+        <plane>
+          <normal>0 0 1</normal>
+          <size>100 100</size>
+        </plane>
+      </geometry>
+
+    </collision>
+
 
   </link>
 
 </model>
 
-
-<!-- ÁRVORES DO POMAR -->
-
-<!-- Linha 1 -->
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_1</name>
-  <pose>-16 -16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_2</name>
-  <pose>-8 -16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_3</name>
-  <pose>0 -16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_4</name>
-  <pose>8 -16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_5</name>
-  <pose>16 -16 0 0 0 0</pose>
-</include>
-
-
-<!-- Linha 2 -->
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_1</name>
-  <pose>-16 -8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_2</name>
-  <pose>-8 -8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_3</name>
-  <pose>0 -8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_4</name>
-  <pose>8 -8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_5</name>
-  <pose>16 -8 0 0 0 0</pose>
-</include>
-
-
-<!-- Linha 3 -->
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_1</name>
-  <pose>-16 0 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_2</name>
-  <pose>-8 0 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_3</name>
-  <pose>0 0 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_4</name>
-  <pose>8 0 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_5</name>
-  <pose>16 0 0 0 0 0</pose>
-</include>
-
-
-<!-- Linha 4 -->
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_1</name>
-  <pose>-16 8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_2</name>
-  <pose>-8 8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_3</name>
-  <pose>0 8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_4</name>
-  <pose>8 8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_5</name>
-  <pose>16 8 0 0 0 0</pose>
-</include>
-
-
-<!-- Linha 5 -->
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_1</name>
-  <pose>-16 16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_2</name>
-  <pose>-8 16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_3</name>
-  <pose>0 16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_4</name>
-  <pose>8 16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_5</name>
-  <pose>16 16 0 0 0 0</pose>
-</include>
-
-<!-- ====================================================== -->
+  <!-- ====================================================== -->
 <!-- CAMINHOS DE TERRA - ESTRUTURA SERPENTE -->
 <!-- ====================================================== -->
 
@@ -834,6 +642,180 @@
   </link>
 </model>
 
-  </world>
+<!-- ====================================================== -->
+<!-- ÁRVORES DO POMAR -->
+<!-- Espaçamento: 8 metros -->
+<!-- ====================================================== -->
+
+
+<!-- ================= LINHA 1 ================= -->
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_1_1</name>
+  <pose>-16 -16 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_1_2</name>
+  <pose>-8 -16 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_1_3</name>
+  <pose>0 -16 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_1_4</name>
+  <pose>8 -16 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_1_5</name>
+  <pose>16 -16 0 0 0 0</pose>
+</include>
+
+
+
+<!-- ================= LINHA 2 ================= -->
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_2_1</name>
+  <pose>-16 -8 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_2_2</name>
+  <pose>-8 -8 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_2_3</name>
+  <pose>0 -8 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_2_4</name>
+  <pose>8 -8 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_2_5</name>
+  <pose>16 -8 0 0 0 0</pose>
+</include>
+
+
+
+<!-- ================= LINHA 3 ================= -->
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_3_1</name>
+  <pose>-16 0 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_3_2</name>
+  <pose>-8 0 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_3_3</name>
+  <pose>0 0 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_3_4</name>
+  <pose>8 0 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_3_5</name>
+  <pose>16 0 0 0 0 0</pose>
+</include>
+
+
+
+<!-- ================= LINHA 4 ================= -->
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_4_1</name>
+  <pose>-16 8 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_4_2</name>
+  <pose>-8 8 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_4_3</name>
+  <pose>0 8 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_4_4</name>
+  <pose>8 8 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_4_5</name>
+  <pose>16 8 0 0 0 0</pose>
+</include>
+
+
+
+<!-- ================= LINHA 5 ================= -->
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_5_1</name>
+  <pose>-16 16 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_5_2</name>
+  <pose>-8 16 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_5_3</name>
+  <pose>0 16 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_5_4</name>
+  <pose>8 16 0 0 0 0</pose>
+</include>
+
+<include>
+  <uri>model://tree</uri>
+  <name>tree_5_5</name>
+  <pose>16 16 0 0 0 0</pose>
+</include>
+
+</world>
 
 </sdf>
