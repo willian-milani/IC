@@ -1,9 +1,15 @@
 import os
 import xacro
 
+
+
 from launch import LaunchDescription
 
 from launch.actions import DeclareLaunchArgument
+
+from launch.actions import ExecuteProcess
+
+from launch.actions import TimerAction
 
 from launch.substitutions import LaunchConfiguration
 
@@ -74,6 +80,29 @@ def generate_launch_description():
         output='screen'
     )
 
+    joint_state_broadcaster_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            'joint_state_broadcaster',
+            '--controller-manager',
+            '/controller_manager'
+        ],
+        output='screen'
+    )
+
+
+    platform_controller_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            'platform_velocity_controller',
+            '--controller-manager',
+            '/controller_manager'
+        ],
+        output='screen'
+    )
+
 
     return LaunchDescription([
 
@@ -100,6 +129,13 @@ def generate_launch_description():
 
         robot_state_publisher,
 
-        spawn_robot
+        spawn_robot,
+
+        TimerAction(
+            period=5.0,
+            actions=[
+                joint_state_broadcaster_spawner,
+                platform_controller_spawner]
+        )
 
     ])
