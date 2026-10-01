@@ -34,5 +34,18 @@
 
     </xacro:microstrain_imu>
 
+    <xacro:include
+        filename="$(find clearpath_sensors_description)/urdf/garmin_18x.urdf.xacro"/>
+
+    <xacro:garmin_18x
+        name="gps"
+        parent_link="base_link">  
+
+        <origin
+            xyz="0 0 0.35"
+            rpy="0 0 0"/>
+
+    </xacro:garmin_18x>
+
 
 </robot>

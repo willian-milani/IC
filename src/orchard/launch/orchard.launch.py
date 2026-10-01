@@ -163,6 +163,15 @@ def generate_launch_description():
         output='screen'
 )
 
+    gps_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/sensors/gps/navsat@sensor_msgs/msg/NavSatFix[gz.msgs.NavSat'
+        ],
+        output='screen'
+)
+
     # ============================================================
     # DESCRIÇÃO DO LAUNCH
     # ============================================================
@@ -192,6 +201,8 @@ def generate_launch_description():
         lidar_bridge,
 
         imu_bridge,
+
+        gps_bridge,
 
         # Insere o robô Clearpath
         robot_spawn,
