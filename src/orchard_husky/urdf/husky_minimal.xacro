@@ -3,6 +3,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="orchard_husky">
 
 
+    <xacro:arg name="gazebo_controllers"
+        default="$(find orchard_husky)/config/a200/control.yaml"/>
     <!-- ================================================= -->
     <!-- Dependências básicas Clearpath -->
     <!-- ================================================= -->

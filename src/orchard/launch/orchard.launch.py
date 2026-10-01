@@ -148,7 +148,17 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=[
-            '/sensors/seyond_lidar/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'
+            '/sensors/seyond_lidar/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
+            '/sensors/seyond_lidar/scan/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked'
+        ],
+        output='screen'
+)
+
+    imu_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/sensors/imu/data@sensor_msgs/msg/Imu[gz.msgs.IMU'
         ],
         output='screen'
 )
@@ -180,6 +190,8 @@ def generate_launch_description():
         clock_bridge,
         
         lidar_bridge,
+
+        imu_bridge,
 
         # Insere o robô Clearpath
         robot_spawn,

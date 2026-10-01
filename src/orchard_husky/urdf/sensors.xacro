@@ -3,9 +3,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 
-    <!-- =============================== -->
-    <!-- SEYOND 3D LIDAR -->
-    <!-- =============================== -->
+    <xacro:arg name="namespace" default=""/>
 
     <xacro:include
         filename="$(find clearpath_sensors_description)/urdf/seyond_lidar.urdf.xacro"/>
@@ -20,6 +18,21 @@
             rpy="0 0 0"/>
 
     </xacro:seyond_lidar>
+
+
+    <xacro:include
+        filename="$(find clearpath_sensors_description)/urdf/microstrain_imu.urdf.xacro"/>
+
+    <xacro:microstrain_imu
+        name="imu"
+        parent_link="base_link"
+        update_rate="100">
+
+        <origin
+            xyz="0 0 0.3"
+            rpy="0 0 0"/>
+
+    </xacro:microstrain_imu>
 
 
 </robot>
