@@ -184,10 +184,10 @@ def generate_launch_description():
             default_value='false'
         ),
 
-        DeclareLaunchArgument('x', default_value='-0.0'),
-        DeclareLaunchArgument('y', default_value='-12.0'),
+        DeclareLaunchArgument('x', default_value='-1.0'),
+        DeclareLaunchArgument('y', default_value='-9.0'),
         DeclareLaunchArgument('z', default_value='0.3'),
-        DeclareLaunchArgument('yaw', default_value='1.57'),
+        DeclareLaunchArgument('yaw', default_value='0.0'),
 
 
         # Recursos do Gazebo

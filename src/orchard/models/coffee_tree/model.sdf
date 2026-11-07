@@ -1,0 +1,33 @@
+<?xml version="1.8" ?>
+<sdf version="1.8">
+  <model name="coffee_tree">
+
+    <static>true</static>
+
+    <link name="link">
+
+      <!-- VISUAL DA ÁRVORE (MANTIDO EXATAMENTE IGUAL) -->
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://coffee_tree/meshes/lowpoly_tree_model_optimized_scaled.glb</uri>
+            <scale>0.004 0.004 0.004</scale>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <!-- COLISÃO FÍSICA (ADICIONADO APENAS PARA O TRONCO) -->
+      <collision name="trunk_collision">
+        <pose>0 0 0.5 0 0 0</pose> <!-- Ajuste o 0.5 para subir/descer o centro do cilindro em Z -->
+        <geometry>
+          <cylinder>
+            <radius>0.10</radius> <!-- Raio do tronco em metros (ex: 10 cm) -->
+            <length>1.0</length>  <!-- Altura do tronco em metros -->
+          </cylinder>
+        </geometry>
+      </collision>
+
+    </link>
+
+  </model>
+</sdf>

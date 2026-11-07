@@ -55,811 +55,121 @@
     <diffuse>1 1 1 1</diffuse>
   </light>
 
-<model name="ground">
-
-  <static>true</static>
-
-  <link name="link">
-
-    <!-- VISUAL -->
-    <visual name="visual">
-
-      <geometry>
-        <plane>
-          <normal>0 0 1</normal>
-          <size>100 100</size>
-        </plane>
-      </geometry>
-
-      <material>
-        <ambient>0.3 0.8 0.3 1</ambient>
-        <diffuse>0.3 0.8 0.3 1</diffuse>
-      </material>
-
-    </visual>
-
-
-    <!-- COLISÃO -->
-    <collision name="collision">
-
-      <geometry>
-        <plane>
-          <normal>0 0 1</normal>
-          <size>100 100</size>
-        </plane>
-      </geometry>
-
-    </collision>
-
-
-  </link>
-
-</model>
-
-  <!-- ====================================================== -->
-<!-- CAMINHOS DE TERRA - ESTRUTURA SERPENTE -->
-<!-- ====================================================== -->
-
-
-<!-- ====================================================== -->
-<!-- CAMINHO 1 -->
-<!-- ====================================================== -->
-
-<model name="dirt_path_1">
-  <static>true</static>
-  <pose>0 -12 0.01 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <box>
-          <size>40 4 0.02</size>
-        </box>
-      </geometry>
-
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-
-    <collision name="collision">
-      <geometry>
-        <box>
-          <size>40 4 0.02</size>
-        </box>
-      </geometry>
-    </collision>
-
-  </link>
-</model>
-
-
-<!-- ====================================================== -->
-<!-- CURVA 1 - DIREITA -->
-<!-- Liga o caminho 1 ao caminho 2 -->
-<!-- ====================================================== -->
-
-<model name="dirt_turn_1">
-  <static>true</static>
-
-  <link name="segment_1">
-    <pose>20.695 -11.939 0.01 0 0 0.175</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="segment_2">
-    <pose>22.000 -11.464 0.01 0 0 0.524</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="segment_3">
-    <pose>23.064 -10.571 0.01 0 0 0.873</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="segment_4">
-    <pose>23.759 -9.368 0.01 0 0 1.222</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="segment_5">
-    <pose>24.000 -8.000 0.01 0 0 1.571</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="segment_6">
-    <pose>23.759 -6.632 0.01 0 0 1.920</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="segment_7">
-    <pose>23.064 -5.429 0.01 0 0 2.269</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="segment_8">
-    <pose>22.000 -4.536 0.01 0 0 2.618</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="segment_9">
-    <pose>20.695 -4.061 0.01 0 0 2.967</pose>
-    <visual name="visual">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>2 4 0.02</size></box>
-      </geometry>
-    </collision>
-  </link>
-
-</model>
-
-
-<!-- ====================================================== -->
-<!-- CAMINHO 2 -->
-<!-- ====================================================== -->
-
-<model name="dirt_path_2">
-  <static>true</static>
-  <pose>0 -4 0.01 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <box>
-          <size>40 4 0.02</size>
-        </box>
-      </geometry>
-
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-
-    <collision name="collision">
-      <geometry>
-        <box>
-          <size>40 4 0.02</size>
-        </box>
-      </geometry>
-    </collision>
-
-  </link>
-</model>
-
-
-<!-- ====================================================== -->
-<!-- CURVA 2 - ESQUERDA -->
-<!-- Liga o caminho 2 ao caminho 3 -->
-<!-- ====================================================== -->
-
-<model name="dirt_turn_2">
-  <static>true</static>
-
-  <link name="segment_1">
-    <pose>-20.695 -3.939 0.01 0 0 2.967</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_2">
-    <pose>-22.000 -3.464 0.01 0 0 2.618</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_3">
-    <pose>-23.064 -2.571 0.01 0 0 2.269</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_4">
-    <pose>-23.759 -1.368 0.01 0 0 1.920</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_5">
-    <pose>-24.000 0.000 0.01 0 0 1.571</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_6">
-    <pose>-23.759 1.368 0.01 0 0 1.222</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_7">
-    <pose>-23.064 2.571 0.01 0 0 0.873</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_8">
-    <pose>-22.000 3.464 0.01 0 0 0.524</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_9">
-    <pose>-20.695 3.939 0.01 0 0 0.175</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-</model>
-
-
-<!-- ====================================================== -->
-<!-- CAMINHO 3 -->
-<!-- ====================================================== -->
-
-<model name="dirt_path_3">
-  <static>true</static>
-  <pose>0 4 0.01 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <box>
-          <size>40 4 0.02</size>
-        </box>
-      </geometry>
-
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-
-    <collision name="collision">
-      <geometry>
-        <box>
-          <size>40 4 0.02</size>
-        </box>
-      </geometry>
-    </collision>
-
-  </link>
-</model>
-
-
-<!-- ====================================================== -->
-<!-- CURVA 3 - DIREITA -->
-<!-- Liga o caminho 3 ao caminho 4 -->
-<!-- ====================================================== -->
-
-<model name="dirt_turn_3">
-  <static>true</static>
-
-  <link name="segment_1">
-    <pose>20.695 3.939 0.01 0 0 0.175</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_2">
-    <pose>22.000 4.464 0.01 0 0 0.524</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_3">
-    <pose>23.064 5.429 0.01 0 0 0.873</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_4">
-    <pose>23.759 6.632 0.01 0 0 1.222</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_5">
-    <pose>24.000 8.000 0.01 0 0 1.571</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_6">
-    <pose>23.759 9.368 0.01 0 0 1.920</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_7">
-    <pose>23.064 10.571 0.01 0 0 2.269</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_8">
-    <pose>22.000 11.464 0.01 0 0 2.618</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-  <link name="segment_9">
-    <pose>20.695 11.939 0.01 0 0 2.967</pose>
-    <visual name="visual">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-    <collision name="collision">
-      <geometry><box><size>2 4 0.02</size></box></geometry>
-    </collision>
-  </link>
-
-</model>
-
-
-<!-- ====================================================== -->
-<!-- CAMINHO 4 -->
-<!-- ====================================================== -->
-
-<model name="dirt_path_4">
-  <static>true</static>
-  <pose>0 12 0.01 0 0 0</pose>
-
-  <link name="link">
-
-    <visual name="visual">
-      <geometry>
-        <box>
-          <size>40 4 0.02</size>
-        </box>
-      </geometry>
-
-      <material>
-        <ambient>0.35 0.18 0.08 1</ambient>
-        <diffuse>0.35 0.18 0.08 1</diffuse>
-      </material>
-    </visual>
-
-    <collision name="collision">
-      <geometry>
-        <box>
-          <size>40 4 0.02</size>
-        </box>
-      </geometry>
-    </collision>
-
-  </link>
-</model>
-
-<!-- ====================================================== -->
-<!-- ÁRVORES DO POMAR -->
-<!-- Espaçamento: 8 metros -->
-<!-- ====================================================== -->
-
-
-<!-- ================= LINHA 1 ================= -->
 
 <include>
-  <uri>model://tree</uri>
-  <name>tree_1_1</name>
-  <pose>-16 -16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_2</name>
-  <pose>-8 -16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_3</name>
-  <pose>0 -16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_4</name>
-  <pose>8 -16 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_1_5</name>
-  <pose>16 -16 0 0 0 0</pose>
-</include>
-
-
-
-<!-- ================= LINHA 2 ================= -->
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_1</name>
-  <pose>-16 -8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_2</name>
-  <pose>-8 -8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_3</name>
-  <pose>0 -8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_4</name>
-  <pose>8 -8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_2_5</name>
-  <pose>16 -8 0 0 0 0</pose>
-</include>
-
-
-
-<!-- ================= LINHA 3 ================= -->
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_1</name>
-  <pose>-16 0 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_2</name>
-  <pose>-8 0 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_3</name>
+  <uri>model://ground</uri>
+  <name>ground</name>
   <pose>0 0 0 0 0 0</pose>
 </include>
 
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_4</name>
-  <pose>8 0 0 0 0 0</pose>
-</include>
 
-<include>
-  <uri>model://tree</uri>
-  <name>tree_3_5</name>
-  <pose>16 0 0 0 0 0</pose>
-</include>
+<!-- ====================================================== -->
+<!-- ÁRVORES DO POMAR (FILEIRAS ESPAÇADAS DE 6.0m DE LARGURA) -->
+<!-- Corredores visíveis e navegáveis com variações X, Y, Z -->
+<!-- ====================================================== -->
 
-
-
-<!-- ================= LINHA 4 ================= -->
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_1</name>
-  <pose>-16 8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_2</name>
-  <pose>-8 8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_3</name>
-  <pose>0 8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_4</name>
-  <pose>8 8 0 0 0 0</pose>
-</include>
-
-<include>
-  <uri>model://tree</uri>
-  <name>tree_4_5</name>
-  <pose>16 8 0 0 0 0</pose>
-</include>
+<!-- ================= LINHA 1 (Y em torno de -12.0) ================= -->
+<include><uri>model://coffee_tree</uri><name>tree_1_1</name><pose>-17.5 -12.0 0 0 0 0.52</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_2</name><pose>-15.0 -11.8 0 0 0 1.28</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_3</name><pose>-12.5 -12.2 0 0 0 2.45</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_4</name><pose>-10.0 -11.9 0 0 0 0.14</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_5</name><pose>-7.5 -12.1 0 0 0 1.90</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_6</name><pose>-5.0 -11.7 0 0 0 3.01</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_7</name><pose>-2.5 -12.0 0 0 0 0.88</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_8</name><pose>0.0 -11.8 0 0 0 2.15</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_9</name><pose>2.5 -12.1 0 0 0 1.40</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_10</name><pose>5.0 -11.9 0 0 0 0.65</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_11</name><pose>7.5 -12.2 0 0 0 2.80</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_12</name><pose>10.0 -11.7 0 0 0 1.12</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_13</name><pose>12.5 -12.0 0 0 0 0.35</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_14</name><pose>15.0 -11.8 0 0 0 2.50</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_1_15</name><pose>17.5 -12.1 0 0 0 1.75</pose></include>
 
 
+<!-- ================= LINHA 2 (Y em torno de -6.0) ================= -->
+<include><uri>model://coffee_tree</uri><name>tree_2_1</name><pose>-17.5 -6.0 0 0 0 1.10</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_2</name><pose>-15.0 -6.3 0 0 0 2.30</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_3</name><pose>-12.5 -5.8 0 0 0 0.45</pose></include>
 
-<!-- ================= LINHA 5 ================= -->
+<!-- Trecho Z (Sinuoso): Linha 2 avança para Y = -5.0 -->
+<include><uri>model://coffee_tree</uri><name>tree_2_4</name><pose>-10.0 -5.0 0 0 0 1.85</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_5</name><pose>-7.5 -5.1 0 0 0 2.95</pose></include>
 
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_1</name>
-  <pose>-16 16 0 0 0 0</pose>
-</include>
+<!-- Trecho Y (Padrão): Linha 2 em Y = -6.0 -->
+<include><uri>model://coffee_tree</uri><name>tree_2_6</name><pose>-5.0 -6.0 0 0 0 0.70</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_7</name><pose>-2.5 -6.2 0 0 0 1.60</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_8</name><pose>0.0 -5.8 0 0 0 2.40</pose></include>
 
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_2</name>
-  <pose>-8 16 0 0 0 0</pose>
-</include>
+<!-- Trecho X (Gargalo Apertado): Linha 2 avança para Y = -4.8 -->
+<include><uri>model://coffee_tree</uri><name>tree_2_9</name><pose>2.5 -4.8 0 0 0 0.20</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_10</name><pose>5.0 -4.8 0 0 0 1.35</pose></include>
 
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_3</name>
-  <pose>0 16 0 0 0 0</pose>
-</include>
+<include><uri>model://coffee_tree</uri><name>tree_2_11</name><pose>7.5 -6.0 0 0 0 2.75</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_12</name><pose>10.0 -6.3 0 0 0 0.90</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_13</name><pose>12.5 -5.9 0 0 0 1.98</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_14</name><pose>15.0 -6.1 0 0 0 3.10</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_2_15</name><pose>17.5 -5.8 0 0 0 0.60</pose></include>
 
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_4</name>
-  <pose>8 16 0 0 0 0</pose>
-</include>
 
-<include>
-  <uri>model://tree</uri>
-  <name>tree_5_5</name>
-  <pose>16 16 0 0 0 0</pose>
-</include>
+<!-- ================= LINHA 3 (Linha Central: Y em torno de 0.0) ================= -->
+<include><uri>model://coffee_tree</uri><name>tree_3_1</name><pose>-17.5 0.0 0 0 0 2.10</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_2</name><pose>-15.0 -0.3 0 0 0 0.85</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_3</name><pose>-12.5 0.2 0 0 0 1.70</pose></include>
+
+<!-- Trecho Z (Sinuoso): Linha 3 recua para Y = 1.0 -->
+<include><uri>model://coffee_tree</uri><name>tree_3_4</name><pose>-10.0 1.0 0 0 0 2.90</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_5</name><pose>-7.5 0.9 0 0 0 0.30</pose></include>
+
+<!-- Trecho Y (Padrão): Linha 3 em Y = 0.0 -->
+<include><uri>model://coffee_tree</uri><name>tree_3_6</name><pose>-5.0 0.0 0 0 0 1.55</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_7</name><pose>-2.5 -0.2 0 0 0 2.65</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_8</name><pose>0.0 0.1 0 0 0 0.95</pose></include>
+
+<!-- Trecho X (Gargalo Apertado): Linha 3 avança para Y = -1.2 -->
+<include><uri>model://coffee_tree</uri><name>tree_3_9</name><pose>2.5 -1.2 0 0 0 2.05</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_10</name><pose>5.0 -1.2 0 0 0 3.12</pose></include>
+
+<include><uri>model://coffee_tree</uri><name>tree_3_11</name><pose>7.5 0.0 0 0 0 1.25</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_12</name><pose>10.0 -0.3 0 0 0 0.15</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_13</name><pose>12.5 0.2 0 0 0 2.45</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_14</name><pose>15.0 -0.2 0 0 0 1.80</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_3_15</name><pose>17.5 0.1 0 0 0 0.50</pose></include>
+
+
+<!-- ================= LINHA 4 (Y em torno de 6.0) ================= -->
+<include><uri>model://coffee_tree</uri><name>tree_4_1</name><pose>-17.5 6.0 0 0 0 0.75</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_2</name><pose>-15.0 6.3 0 0 0 1.95</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_3</name><pose>-12.5 5.8 0 0 0 3.05</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_4</name><pose>-10.0 6.2 0 0 0 1.15</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_5</name><pose>-7.5 5.9 0 0 0 2.25</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_6</name><pose>-5.0 6.4 0 0 0 0.40</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_7</name><pose>-2.5 6.0 0 0 0 1.65</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_8</name><pose>0.0 6.2 0 0 0 2.85</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_9</name><pose>2.5 5.8 0 0 0 0.10</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_10</name><pose>5.0 6.3 0 0 0 1.45</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_11</name><pose>7.5 6.0 0 0 0 2.60</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_12</name><pose>10.0 6.4 0 0 0 0.80</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_13</name><pose>12.5 5.9 0 0 0 1.90</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_14</name><pose>15.0 6.2 0 0 0 3.00</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_4_15</name><pose>17.5 6.0 0 0 0 1.20</pose></include>
+
+
+<!-- ================= LINHA 5 (Y em torno de 12.0) ================= -->
+<include><uri>model://coffee_tree</uri><name>tree_5_1</name><pose>-17.5 12.0 0 0 0 2.35</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_2</name><pose>-15.0 11.7 0 0 0 0.60</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_3</name><pose>-12.5 12.3 0 0 0 1.80</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_4</name><pose>-10.0 11.8 0 0 0 2.95</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_5</name><pose>-7.5 12.2 0 0 0 1.05</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_6</name><pose>-5.0 11.6 0 0 0 2.15</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_7</name><pose>-2.5 12.0 0 0 0 0.25</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_8</name><pose>0.0 11.7 0 0 0 1.50</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_9</name><pose>2.5 12.3 0 0 0 2.70</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_10</name><pose>5.0 11.8 0 0 0 0.90</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_11</name><pose>7.5 12.2 0 0 0 2.00</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_12</name><pose>10.0 11.6 0 0 0 3.14</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_13</name><pose>12.5 12.0 0 0 0 1.35</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_14</name><pose>15.0 11.7 0 0 0 0.45</pose></include>
+<include><uri>model://coffee_tree</uri><name>tree_5_15</name><pose>17.5 12.2 0 0 0 2.60</pose></include>
 
 </world>
 

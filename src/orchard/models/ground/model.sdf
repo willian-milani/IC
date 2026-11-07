@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.8">
+
+  <model name="ground">
+
+    <!-- O terreno não se movimenta -->
+    <static>true</static>
+
+    <link name="link">
+
+      <!-- ===================================================== -->
+      <!-- VISUAL DO TERRENO                                    -->
+      <!-- ===================================================== -->
+
+      <visual name="visual">
+
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>70 70</size>
+          </plane>
+        </geometry>
+
+        <material>
+
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+
+          <pbr>
+            <metal>
+
+              <albedo_map>
+                model://ground/materials/textures/terreno.jpg
+              </albedo_map>
+
+              <metalness>0.0</metalness>
+              <roughness>1.0</roughness>
+
+            </metal>
+          </pbr>
+
+        </material>
+
+      </visual>
+
+
+      <!-- ===================================================== -->
+      <!-- COLISÃO DO TERRENO                                   -->
+      <!-- ===================================================== -->
+
+      <collision name="collision">
+
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>70 70</size>
+          </plane>
+        </geometry>
+
+      </collision>
+
+    </link>
+
+  </model>
+
+</sdf>
